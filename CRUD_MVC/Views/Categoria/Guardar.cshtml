@@ -1,0 +1,26 @@
+﻿@model CategoriaModelo
+@{
+    ViewData["Title"] = "Guardar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">Nueva Categoria</h5>
+    <div class="card-body">
+        <form asp-action="Guardar" asp-controller="Categoria" method="post">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nombre de la categoria</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" asp-for="NombreCategoria">
+                <span asp-validation-for="NombreCategoria" class="text-danger"></span>
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Activo</label>
+                <input type="checkbox" class="form-check-input" id="activoCheckbox" asp-for="Estado">
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <a asp-action="Listar" asp-controller="Categoria" class="btn btn-warning">Volver a Lista</a>
+        </form>
+    </div>
+</div>
+

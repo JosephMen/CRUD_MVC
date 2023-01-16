@@ -1,0 +1,18 @@
+﻿@model ProductoModelo
+@{
+    ViewData["Title"] = "Buscar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <h5 class="card-header">Lista de Productos</h5>
+    <form asp-action="MostrarBusqueda" asp-controller="Producto">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label m-3">Id de la categoria</label>
+            <input type="number" min="0" max="100" class="form-control ms-2" asp-for="CategoriaId">
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+        <a asp-action="Listar" asp-controller="Producto" class="btn btn-warning">Volver a Lista Productos</a>
+    </form>
+</div>
+
+

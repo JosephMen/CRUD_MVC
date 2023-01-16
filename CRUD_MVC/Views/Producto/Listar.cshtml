@@ -1,0 +1,44 @@
+﻿@model List<ProductoModelo>
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int busqueda = 1;
+}
+
+<div class="card">
+    <h5 class="card-header">Lista de Productos</h5>
+    <div class="card-body">
+
+        <a asp-action="Listar" asp-controller="Producto" class="btn btn-success">Listar Todos</a>
+        <a asp-action="Buscar" asp-controller="Producto" class="btn btn-secondary">Buscar</a>
+        <a asp-action="Listar" asp-controller="Categoria" class="btn btn-warning">Lista Categorias</a>
+
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Categoria</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ProductoId</td>
+                        <td>@item.ProductoNombre</td>
+                        <td>
+                            $@item.ProductoPrecio
+                        </td>
+                        <td>@item.NombreCategoria</td>   
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
